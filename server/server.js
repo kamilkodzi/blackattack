@@ -30,6 +30,7 @@ server.get('/random-numbers', (req, res) => {
   });
 });
 
-server.listen(3000, () => {
+// Orginal route 3000
+server.listen(process.env.PORT,process.env.IP, () => {
   console.log('JSON Server is running')
 });
