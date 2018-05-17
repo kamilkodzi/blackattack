@@ -34,4 +34,13 @@ RandomNumbers.prototype.render = function() {
 
       container.appendChild(listElement);
   });
+
+RandomNumbers.prototype.clear=function(){
+    const container = this.getDOMElement();
+    
+    while (container.hasChildNodes()) {   
+    container.removeChild(this.profile.firstChild);
+    }
 };
+};
+
