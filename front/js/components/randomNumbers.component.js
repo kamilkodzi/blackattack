@@ -6,7 +6,7 @@ function RandomNumbers(selector) {
 RandomNumbers.prototype = Object.create(Component.prototype);
 RandomNumbers.constructor = RandomNumbers;
 
-RandomNumbers.prototype.init = function() {
+RandomNumbers.prototype.init = function(inLoop) {
   const self = this;
 // Orginal route 'http://localhost:3000/numbers'
   axios.get('https://frontend-recruitment-task-kamilkodzi.c9users.io/random-numbers')
@@ -18,6 +18,8 @@ RandomNumbers.prototype.init = function() {
       });
       self.clearUl();
       self.render();
+      if(inLoop===true){setTimeout(function(){self.init(true)},2000)}
+      
     })
     .catch(function(error) {
       console.error(error);
