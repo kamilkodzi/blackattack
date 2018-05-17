@@ -23,3 +23,15 @@ RandomNumbers.prototype.init = function() {
       console.error(error);
     });
 };
+
+RandomNumbers.prototype.render = function() {
+  const container = this.getDOMElement();
+
+  this.numbers.forEach(function(number) {
+      const listElement = document.createElement('li');
+      listElement.classList.add('list-group-item');
+      listElement.innerHTML = number.id;
+
+      container.appendChild(listElement);
+  });
+};
