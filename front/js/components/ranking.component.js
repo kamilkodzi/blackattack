@@ -28,7 +28,7 @@ Ranking.prototype.init = function() {
     
   }else{
     // next initialize
-    
+    console.log('in right place');
     
   }
   
@@ -44,9 +44,7 @@ Ranking.prototype.render = function() {
       const listElement = document.createElement('li');
       listElement.classList.add('list-group-item');
       listElement.innerHTML = number.id;
-      console.log(number.id);
       table[number.id]=0;
       container.appendChild(listElement);
   });
-  if(table===undefined){console.log("wykrylo pustego tabelke")};
 };

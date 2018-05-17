@@ -25,6 +25,7 @@ RandomNumbers.prototype.init = function(inLoop) {
     })
     .then(function(){end = new Date().getTime()})
     .then(function(){if(inLoop===true){setTimeout(function(){self.init(true)},5000-(end-start))}})
+    .then(function(){ranking.init()})
     .catch(function(error) {
       console.error(error);
     });
