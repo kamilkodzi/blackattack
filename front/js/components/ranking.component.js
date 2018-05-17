@@ -8,8 +8,8 @@ Ranking.constructor = Ranking;
 
 Ranking.prototype.init = function() {
   const self = this;
-
-  axios.get('http://localhost:3000/numbers')
+// Orginal route 'http://localhost:3000/numbers'
+  axios.get('https://frontend-recruitment-task-kamilkodzi.c9users.io/numbers')
     .then(function(response) {
       self.numbers = response.data.data.map(function(number) {
         return {
