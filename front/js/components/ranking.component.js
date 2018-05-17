@@ -11,7 +11,7 @@ Ranking.prototype.init = function() {
   
   if(table===undefined){
     // First initialize
-    table={};
+    table=[];
     // Orginal route 'http://localhost:3000/numbers'
     axios.get('https://frontend-recruitment-task-kamilkodzi.c9users.io/numbers')
     .then(function(response) {
@@ -28,23 +28,29 @@ Ranking.prototype.init = function() {
     
   }else{
     // next initialize
-    console.log('in right place');
-    
+    self.clearUl();
+    table.sort(compareSecondColumn);
+    self.render(table);
   }
-  
-  
-
 
 };
 
-Ranking.prototype.render = function() {
+Ranking.prototype.render = function(sortedArray) {
   const container = this.getDOMElement();
-
-  this.numbers.forEach(function(number) {
-      const listElement = document.createElement('li');
-      listElement.classList.add('list-group-item');
-      listElement.innerHTML = number.id;
-      table[number.id]=0;
-      container.appendChild(listElement);
-  });
+  if(sortedArray){
+    sortedArray.forEach(function(number){
+    const listElement = document.createElement('li');
+    listElement.classList.add('list-group-item');
+    listElement.innerHTML = Number(number[0]);
+    container.appendChild(listElement);
+    });
+  }else{
+    this.numbers.forEach(function(number) {
+    const listElement = document.createElement('li');
+    listElement.classList.add('list-group-item');
+    listElement.innerHTML = number.id;
+    table.push([[number.id],0]);
+    container.appendChild(listElement);
+    });
+  }
 };

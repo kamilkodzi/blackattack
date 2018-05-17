@@ -20,27 +20,24 @@ RandomNumbers.prototype.init = function(inLoop) {
       });
       self.clearUl();
       self.render();
-      
-      
     })
     .then(function(){end = new Date().getTime()})
-    .then(function(){if(inLoop===true){setTimeout(function(){self.init(true)},5000-(end-start))}})
+    .then(function(){if(inLoop===true){setTimeout(function(){self.init(true)},10000-(end-start))}})
     .then(function(){ranking.init()})
     .catch(function(error) {
       console.error(error);
     });
 };
 
-RandomNumbers.prototype.render = function() {
+RandomNumbers.prototype.render = async function() {
   const container = this.getDOMElement();
-  
   this.numbers.forEach(function(number) {
+      
       const listElement = document.createElement('li');
       listElement.classList.add('list-group-item');
       listElement.innerHTML = number.id;
-
       container.appendChild(listElement);
+      table[number.id-1][1]+=1;
   });
-
 };
 
