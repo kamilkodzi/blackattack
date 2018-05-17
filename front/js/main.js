@@ -3,4 +3,18 @@ ranking.init();
 
 
 const random = new RandomNumbers('#numbers-random');
-setInterval(()=>random.init(), 1000);
+random.init();
+
+
+const randomLoop = function(){
+    setTimeout(function(){
+       random.init();
+    },2000);
+    // callback(randomLoop());
+    randomLoop();
+};
+// setInterval(()=>{
+//     // random.clearUl();
+//     random.init();
+// }, 2000);
+

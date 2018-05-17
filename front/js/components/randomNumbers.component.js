@@ -16,7 +16,7 @@ RandomNumbers.prototype.init = function() {
           id: number
         }
       });
-
+      self.clearUl();
       self.render();
     })
     .catch(function(error) {
@@ -26,7 +26,7 @@ RandomNumbers.prototype.init = function() {
 
 RandomNumbers.prototype.render = function() {
   const container = this.getDOMElement();
-
+  
   this.numbers.forEach(function(number) {
       const listElement = document.createElement('li');
       listElement.classList.add('list-group-item');
@@ -35,12 +35,5 @@ RandomNumbers.prototype.render = function() {
       container.appendChild(listElement);
   });
 
-RandomNumbers.prototype.clear=function(){
-    const container = this.getDOMElement();
-    
-    while (container.hasChildNodes()) {   
-    container.removeChild(this.profile.firstChild);
-    }
-};
 };
 

@@ -13,3 +13,10 @@ Component.prototype.getDOMElement = function() {
 Component.prototype.render = function() {
   console.log("Component: " + this.selector + " rendered");
 };
+
+Component.prototype.clearUl=function(){
+    const container = document.querySelector(this.selector);
+    while (container.hasChildNodes()) {   
+    container.removeChild(container.firstChild);
+    }
+};
