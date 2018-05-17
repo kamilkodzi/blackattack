@@ -1,5 +1,5 @@
 const ranking = new Ranking('#numbers-ranking');
 ranking.init();
 
-const random = new randomNumbers('#numbers-random');
+const random = new RandomNumbers('#numbers-random');
 random.init();
